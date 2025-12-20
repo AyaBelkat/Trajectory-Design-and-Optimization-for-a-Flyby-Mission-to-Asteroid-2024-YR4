@@ -1,0 +1,19 @@
+# --- MATLAB Specific ---
+*.asv              # Auto-save files
+*.m~               # Backup files
+*.slxc             # Simulink cache
+*.mex* # Compiled MEX files (platform-specific)
+log.txt            # Local MATLAB logs
+
+# --- Data & SPICE (Crucial for your level) ---
+# SPICE kernels are large; users should download them via your README links
+*.bsp              
+*.bc
+*.tpc
+*.tls
+*.tf
+*.mat              # Large local data variables
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
