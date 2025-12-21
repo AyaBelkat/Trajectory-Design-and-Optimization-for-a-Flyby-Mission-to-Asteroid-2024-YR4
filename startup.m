@@ -1,0 +1,39 @@
+% =========================================================================
+% Startup Script: 2024 YR4 Mission Analysis & Optimization
+% =========================================================================
+% Purpose:
+%   - Automatically configures the MATLAB search path for all subfolders.
+%   - Enables modular access to /core_solvers from any directory.
+%   - Verifies the availability of the SPICE (Mice) Toolkit.
+% =========================================================================
+
+fprintf('Initializing Mission Design Environment...\n');
+
+% 1. Add ALL folders and subfolders to the MATLAB path
+% genpath(pwd) recursively finds every folder in your project structure.
+% This allows main scripts to "see" functions inside /core_solvers,
+% /direct_transfer, and /mgadsm_optimization.
+addpath(genpath(pwd));
+fprintf('-> Recursive path integration complete.\n');
+
+% 2. Check for SPICE (Mice) Toolkit
+% Essential for high-fidelity planetary states and J2000 ephemeris data.
+% If this fails, cspice_str2et or cspice_spkezr calls will error out.
+if exist('cspice_spkezr', 'file') ~= 3
+    warning('SPICE (Mice) Toolkit not detected in path.');
+    fprintf('   Action: Download Mice from NAIF and add it to your path.\n');
+else
+    fprintf('-> SPICE Toolkit: OK\n');
+end
+
+% 3. Verify Core Solver Existence
+% A quick check to ensure the /core_solvers directory is populated.
+if exist('lambert_solver.m', 'file')
+    fprintf('-> Core Lambert Engine: Detected\n');
+else
+    warning('lambert_solver.m not found. Check your /core_solvers folder.');
+end
+
+fprintf('------------------------------------------------------------\n');
+fprintf('Environment Ready.\n');
+fprintf('Entry point: Run /validation/earth_mars_test.m to verify solver.\n');
