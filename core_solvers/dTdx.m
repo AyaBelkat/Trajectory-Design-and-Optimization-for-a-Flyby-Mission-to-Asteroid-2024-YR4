@@ -1,4 +1,4 @@
-% dTdx funtion to find the time of flight derivatives
+% dTdx function to find the time of flight derivatives
 
 function [DTdx, DTdx2, DTdx3] = dTdx(x, T, lambda2, lambda3)
 
@@ -10,3 +10,4 @@ DTdx2 = tmp * (3 * T + 5 * x * DTdx + 2 * (1 - lambda2) * (lambda3/y^3));
 DTdx3 = tmp * (7 * x * DTdx2 + 8 * DTdx - 6 * (1 - lambda2) * lambda2 * lambda3 * (x/y^5));
 
 end
+
