@@ -1,7 +1,7 @@
 clc
 clear
 
-
+startup;   % This command replaces all manual path additions
 
 mu = 1.32712440018e11;   % Sun gravitational constant [km^3/s^2]
 
@@ -9,8 +9,7 @@ mu = 1.32712440018e11;   % Sun gravitational constant [km^3/s^2]
 % Adds MICE toolboxes to the MATLAB path and loads core kernels:
 %  - naif0012.tls.pc : leap seconds (UTC↔TDB conversions)
 %  - de430.bsp       : JPL planetary/lunar ephemerides
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\src\mice");
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\lib");
+
 
 cspice_furnsh('naif0012.tls.pc');    % Time system support
 cspice_furnsh('de430.bsp');          % Ephemerides for Earth/Mars (center: Sun)
@@ -174,4 +173,5 @@ set(ax, 'XGrid','on','YGrid','on');
 xlabel('Departure Dates');
 ylabel('Arrival Dates');
 title('Earth–Mars Pork Chop: C_3 < 30 km^2/s^2');
+
 
