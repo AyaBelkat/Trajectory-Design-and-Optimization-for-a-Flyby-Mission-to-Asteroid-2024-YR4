@@ -2,6 +2,8 @@ clc
 clear
 
 startup;   % This command replaces all manual path additions
+cspice_kclear;
+load_kernels;
 
 mu = 1.32712440018e11;   % Sun gravitational constant [km^3/s^2]
 
@@ -173,5 +175,6 @@ set(ax, 'XGrid','on','YGrid','on');
 xlabel('Departure Dates');
 ylabel('Arrival Dates');
 title('Earth–Mars Pork Chop: C_3 < 30 km^2/s^2');
+
 
 
