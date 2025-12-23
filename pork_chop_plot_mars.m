@@ -13,9 +13,6 @@ mu = 1.32712440018e11;   % Sun gravitational constant [km^3/s^2]
 %  - de430.bsp       : JPL planetary/lunar ephemerides
 
 
-cspice_furnsh('naif0012.tls.pc');    % Time system support
-cspice_furnsh('de430.bsp');          % Ephemerides for Earth/Mars (center: Sun)
-
 % === Date grids (UTC calendar) ============================================
 % Earth→Mars verification case (2005–2007):
 %   - departures every 2 days
@@ -175,6 +172,7 @@ set(ax, 'XGrid','on','YGrid','on');
 xlabel('Departure Dates');
 ylabel('Arrival Dates');
 title('Earth–Mars Pork Chop: C_3 < 30 km^2/s^2');
+
 
 
 
