@@ -19,11 +19,19 @@ fprintf('-> Recursive path integration complete.\n');
 % 2. Check for SPICE (Mice) Toolkit
 % Essential for high-fidelity planetary states and J2000 ephemeris data.
 % If this fails, cspice_str2et or cspice_spkezr calls will error out.
+% 2. Check for SPICE (Mice) Toolkit
 if exist('cspice_spkezr', 'file') ~= 3
-    warning('SPICE (Mice) Toolkit not detected in path.');
-    fprintf('   Action: Download Mice from NAIF and add it to your path.\n');
+    % If not found, try adding a standard relative path 
+    % (Useful if you keep 'mice' in your project root)
+    if isfolder('mice')
+        addpath(genpath('mice'));
+        fprintf('-> SPICE Toolkit: Found in local /mice folder.\n');
+    else
+        warning('SPICE (Mice) Toolkit not detected.');
+        fprintf('   Action: Ensure the Mice toolkit is in your MATLAB path.\n');
+    end
 else
-    fprintf('-> SPICE Toolkit: OK\n');
+    fprintf('-> SPICE Toolkit: OK (Detected in Path)\n');
 end
 
 % 3. Verify Core Solver Existence
