@@ -3,7 +3,7 @@ function [v_out] = GA_Venus_calculations(Rperi, theta_b, v_inf_in, vE, et)
 % GA_CALCULATIONS   Computes the outgoing heliocentric velocity after a gravity assist around Earth.
 %
 % INPUTS:
-%   Rperi    [km]   Periapsis radius of the flyby relative to planet center
+%   Rperi    [km]   Periapsis radius of the flyby relative to planet centre
 %   theta_b  [rad]  B-plane angle
 %   v_inf_in [3x1]  Incoming hyperbolic excess velocity in J2000 frame
 %   vE       [3x1]  Planet heliocentric velocity in J2000 frame
@@ -41,4 +41,5 @@ B_hat = B_dir;
 v_inf_out = v_inf_in * cos(delta) + cross(B_hat, v_inf_in) * sin(delta) + B_hat * (dot(B_hat, v_inf_in)) * (1 - cos(delta));
 
 % Convert back to heliocentric frame
+
 v_out = vE + v_inf_out;
