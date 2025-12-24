@@ -22,7 +22,7 @@ function plotC3(C3_plot, levels, departure_dates, arrival_dates)
 % --- Plot C3 contours for each revolution branch (k = index) ---------------
 figure;
 for k = 1:size(C3_plot,3)
-    [C,h] = contour(X, Y, C3_plot(:,:,k),levels,'LineWidth',1);
+    contour(X, Y, C3_plot(:,:,k),levels,'LineWidth',1);
     hold on
 end
 hold off
@@ -61,4 +61,5 @@ title('Earth–2024YR4 Pork Chop: C_3 < 10 km^2/s^2');
 ax = gca;
 set(allchild(ax), 'HitTest','off', 'PickableParts','none');                 % children ignore clicks
 set(ax, 'HitTest','on', 'PickableParts','all', 'ButtonDownFcn', @ClickOnContour);  % axes handles clicks
+
 
