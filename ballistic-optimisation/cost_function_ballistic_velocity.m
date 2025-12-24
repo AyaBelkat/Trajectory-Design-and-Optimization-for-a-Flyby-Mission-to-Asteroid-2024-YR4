@@ -14,9 +14,9 @@ function J = cost_function_ballistic_velocity(x)
 %       t0 : departure epoch (ET, TDB seconds past J2000)
 %       tf : arrival   epoch (ET, TDB seconds past J2000)
 %
-% Modeling assumptions:
+% Modelling assumptions:
 %   • Heliocentric two-body dynamics (Sun GM).
-%   • Planetary/asteroid states from SPICE (Sun-centered J2000 frame).
+%   • Planetary/asteroid states from SPICE (Sun-centred J2000 frame).
 %   • Patched-conic at Earth departure, using GTO injection cost proxy.
 %   • No midcourse DSMs or gravity assists; purely ballistic.
 %
@@ -102,3 +102,4 @@ end
 
 
 J = Total_delta_v;
+
