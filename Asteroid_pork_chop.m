@@ -13,17 +13,11 @@
 clc
 clear
 format longG
+startup;
+cspice_kclear;
+load_kernels;
 
 mu = 1.32712440018e11;    % Sun gravitational parameter [km^3/s^2]
-
-% --- SPICE setup: load MICE paths and required kernels ---------------------
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\src\mice");
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\lib");
-
-cspice_furnsh('naif0012.tls.pc');               % Leap seconds (time conversions)
-cspice_furnsh('54509621_2024yr4_data.bsp');     % SPK for asteroid 2024 YR4 (NAIF ID 54509621)
-
-cspice_furnsh('de430.bsp');                     % Planetary ephemerides 
 
 % --- Date grids (UTC calendar) ---------------------------------------------
 departure_dates = datetime(2031,7,1):days(1):datetime(2032,4,15);
@@ -42,8 +36,12 @@ for j = 1:numArrivals
 end
 
 % Prealloc Arrays will grow as used below.
-C3  = NaN(numArrivals, numDepartures);
-TOF = NaN(numArrivals, numDepartures);
+C3  = NaN(numArrivals, numDepartures,3);
+TOF = NaN(numArrivals, numDepartures,3);
+v_inf_1 = NaN(numArrivals, numDepartures, 3);
+v_inf_2 = NaN(numArrivals, numDepartures, 3);
+vv1     = NaN(numArrivals, numDepartures, 3);
+vv2     = NaN(numArrivals, numDepartures, 3);
 
 % --- Main Lambert scan ------------------------------------------------------
 for i = 1:numDepartures
@@ -149,4 +147,5 @@ Total_delta_v(departure_dates, arrival_dates, delta_v_plot, C3)
 delta_v_2_plot(delta_v2_plot, departure_dates, arrival_dates, C3)
 
 delta_v_1_plot(delta_v1_plot, departure_dates, arrival_dates, C3)
+
 
