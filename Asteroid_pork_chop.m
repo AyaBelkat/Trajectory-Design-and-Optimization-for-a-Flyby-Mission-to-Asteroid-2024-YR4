@@ -125,7 +125,7 @@ levels = 0:2:10;          % C3 contours [km^2/s^2]
 levels_tof = 0:20:700;    % TOF contours [days]
 
 % --- User plotting utility: C3 vs. (dep, arr) with TOF overlays ------------
-plotC3(C3_plot, tof_plot, levels, levels_tof, departure_dates, arrival_dates)
+plotC3(C3_plot, levels, departure_dates, arrival_dates)
 
 
 % --- Delta-v summaries from v∞ magnitudes ----------------
@@ -147,5 +147,6 @@ Total_delta_v(departure_dates, arrival_dates, delta_v_plot, C3)
 delta_v_2_plot(delta_v2_plot, departure_dates, arrival_dates, C3)
 
 delta_v_1_plot(delta_v1_plot, departure_dates, arrival_dates, C3)
+
 
 
