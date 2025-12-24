@@ -13,13 +13,6 @@ arr_click_dt = datetime(ynum,'ConvertFrom','datenum');
 
 fprintf('You clicked at (%s, %s)\n',dep_click_dt,arr_click_dt);
 
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\src\mice");
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\lib");
-
-cspice_furnsh('naif0012.tls.pc');        % Leap seconds kernel
-cspice_furnsh('54509621_2024yr4_data.bsp');       % Planetary ephemeris kernel for 2024 YR4
-
-cspice_furnsh('de430.bsp');              % Planetary ephemeris kernel for Earth
 
 depEt = cspice_str2et(datestr(dep_click_dt));
 arrEt = cspice_str2et(datestr(arr_click_dt));
@@ -71,6 +64,7 @@ elseif size(v1, 1) > 1
         disp("C 1 R rev is"); disp(C33);
     end
 end
+
 
 
 
