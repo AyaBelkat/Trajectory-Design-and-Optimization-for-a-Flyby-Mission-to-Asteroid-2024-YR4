@@ -11,14 +11,6 @@ function plot_lambert_trajectory(R1, R2, V, N_rev)
 %   - COE2RV(coe, mu): converts [a;e;i;RAAN;argP;theta] (rad) to r,v
 %   - SPICE/MICE toolkit
 
-% ---------- SPICE setup ----------
-% Add your MICE paths (adjust these to your installation)
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\src\mice");
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\lib");
-
-% Clear any existing kernels and load meta-kernel
-cspice_kclear;
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_meta.tm');
 
 mu = 1.32712440018e11;                % km^3/s^2 (Sun)
 AU = 1.495978707e8;                   % 1 AU in km
@@ -231,4 +223,5 @@ hold off
 
 % Clean up SPICE (optional)
 % cspice_kclear;
+
 end
