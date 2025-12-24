@@ -1,4 +1,4 @@
-function plotC3(C3_plot, TOF, levels, levels_tof, departure_dates, arrival_dates)
+function plotC3(C3_plot, levels, departure_dates, arrival_dates)
 % === Function: plotC3 =====================================================
 % Purpose:
 %   Generate a pork chop plot to visualise launch energy requirements (C3) 
@@ -24,13 +24,9 @@ figure;
 for k = 1:size(C3_plot,3)
     [C,h] = contour(X, Y, C3_plot(:,:,k),levels,'LineWidth',1);
     hold on
-    % Optionally overlay time-of-flight contours:
-    %[C1,h1] = contour(X, Y, TOF(:,:,k), levels_tof,'m-', 'LineWidth',3, 'ShowText','on');
 end
 hold off
 
-%clabel(C,h, 'Color', 'black');  , 'ShowText','on'
-%clabel(C1,h1, 'Color', 'black');
 % --- Colour map and scale -------------------------------------------------
 colormap(jet);
 colormap(jet);
@@ -65,3 +61,4 @@ title('Earth–2024YR4 Pork Chop: C_3 < 10 km^2/s^2');
 ax = gca;
 set(allchild(ax), 'HitTest','off', 'PickableParts','none');                 % children ignore clicks
 set(ax, 'HitTest','on', 'PickableParts','all', 'ButtonDownFcn', @ClickOnContour);  % axes handles clicks
+
