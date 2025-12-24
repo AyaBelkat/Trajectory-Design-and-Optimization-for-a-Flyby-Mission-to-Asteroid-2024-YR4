@@ -45,8 +45,8 @@ clc; clear;
 startup;
 
 % === MICE (SPICE) setup ====================================================
-load_kernels;
 cspice_kclear;
+load_kernels;
 
 % === Initial guesses (calendar → SPICE ET) =================================
 % Seed departure/arrival epochs for the local optimiser (fmincon).
@@ -107,6 +107,7 @@ disp('optimized departure date');   disp(optimized_departure_date)
 disp('optimized arrival date');     disp(optimized_arrival_date)
 
 disp('Best cost');       disp(Jmin)
+
 
 
 
