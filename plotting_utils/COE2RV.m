@@ -1,4 +1,3 @@
-
 %% COE2RV function to convert from classical orbit elements to SCI position and velocity coordinates %%
 
 function [X] = COE2RV(coe, mu)
@@ -47,4 +46,5 @@ v_ECI = IP'*v_coe;      % converting to SCI velocity
 
 
 % Output
+
 X = [r_ECI; v_ECI];
