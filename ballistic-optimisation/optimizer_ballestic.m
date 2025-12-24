@@ -3,13 +3,13 @@
 %
 %   Purpose:
 %       This script sets up and solves a preliminary Earth-to-NEO transfer 
-%       optimization problem using a purely ballistic trajectory model. 
+%       optimisation problem using a purely ballistic trajectory model. 
 %       It frames the mission design as a constrained nonlinear program 
 %       (NLP) with decision variables representing departure and arrival 
 %       epochs.
 %
 %   Approach:
-%       - The spacecraft dynamics are modeled with a two-body Sun-centered 
+%       - The spacecraft dynamics are modelled with a two-body Sun-centred 
 %         approximation (patched-conics at departure and arrival).
 %       - The cost function (cost_function_ballistic_velocity) evaluates the 
 %         characteristic energy (C3) or equivalent v∞ velocity at departure, 
@@ -17,7 +17,7 @@
 %       - Nonlinear constraints (circlcon) enforce mission requirements such 
 %         as minimum time of flight, planetary geometry conditions, and 
 %         arrival deadline compatibility.
-%       - The optimization is handled by fmincon (SQP), with bounds ensuring 
+%       - The optimisation is handled by fmincon (SQP), with bounds ensuring 
 %         realistic departure and arrival dates within the mission window.
 %
 %   Decision variables:
@@ -32,29 +32,24 @@
 %       - circlcon(x) imposes additional dynamical and geometry conditions
 %
 %   Output:
-%       The optimizer returns optimal departure and arrival epochs, printed 
+%       The optimiser returns optimal departure and arrival epochs, printed 
 %       both in ET seconds and as UTC calendar dates. These serve as 
 %       baseline solutions for subsequent higher-fidelity trajectory design.
 %
 %   Context:
-%       This ballistic optimizer provides a first-cut solution for the 
+%       This ballistic optimiser provides a first-cut solution for the 
 %       mission trajectory design process. It is deliberately simplified to 
 %       highlight feasibility regions before extending to models that include 
 %       midcourse DSMs or gravity assists ( MGA/MGADSM frameworks) 
 clc; clear;
+startup;
 
 % === MICE (SPICE) setup ====================================================
-% Add MATLAB–SPICE interface (MICE) to the path and load a meta-kernel.
-% The meta-kernel should furnish all required SPKs/PCKs/LSKs for your run.
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\src\mice");
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\lib");
-
-
+load_kernels;
 cspice_kclear;
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_meta.tm');
 
 % === Initial guesses (calendar → SPICE ET) =================================
-% Seed departure/arrival epochs for the local optimizer (fmincon).
+% Seed departure/arrival epochs for the local optimiser (fmincon).
 t0_guess = cspice_str2et(datestr(datetime(2032, 2, 17)));     % First guess for departure date
 tf_guess = cspice_str2et(datestr(datetime(2032, 11, 17)));    % First guess for arrival date
 
@@ -64,7 +59,7 @@ et_lb_dep = cspice_str2et('2028 JAN 01 TDB');   % lower bound for departure
 et_ub_arr = cspice_str2et('2032 DEC 15 TDB');   % upper bound for arrival
 
 % Minimum TOF requirement (robustness/mission feasibility)
-minTOF_days = 100;                                % minimum time of flight 
+minTOF_days = 1;                                % minimum time of flight 
 minTOF_sec  = minTOF_days*86400;
 
 % Decision vector (ballistic case): x = [t0, tf]
@@ -96,15 +91,15 @@ J = @cost_function_ballistic_velocity;
 disp('Initial constraint values:')
 disp(c0)
 
-% === Local optimizer (SQP) =================================================
+% === Local optimiser (SQP) =================================================
 % Display iterations; use moderate constraint tolerance; single-threaded.
 options = optimoptions('fmincon','Display','iter','Algorithm','sqp', 'UseParallel',false, 'ConstraintTolerance', 1e-7);
 
-% Solve the constrained optimization starting from x0
+% Solve the constrained optimisation starting from x0
 [X, Jmin] = fmincon(J, x0, A, b, Aeq, beq, lb, ub, nonlcon, options);
 
-% === Report optimized epochs ==============================================
-% Convert optimized ET back to human-readable UTC strings.
+% === Report optimised epochs ==============================================
+% Convert optimised ET back to human-readable UTC strings.
 optimized_departure_date = cspice_et2utc(X(1), 'C', 3);
 optimized_arrival_date = cspice_et2utc(X(2), 'C', 3);
 
@@ -112,5 +107,6 @@ disp('optimized departure date');   disp(optimized_departure_date)
 disp('optimized arrival date');     disp(optimized_arrival_date)
 
 disp('Best cost');       disp(Jmin)
+
 
 
