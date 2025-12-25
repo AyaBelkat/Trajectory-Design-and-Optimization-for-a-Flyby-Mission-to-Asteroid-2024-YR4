@@ -5,7 +5,7 @@ function [c, ceq] = circlcon_GA_Venus_dsm(x)
 %
 % Purpose (dissertation-style summary):
 %   Enforces feasibility for a trajectory with one unpowered Venus gravity
-%   assist (GA) and one deep-space maneuver (DSM) under patched-conics.
+%   assist (GA) and one deep-space manoeuvre (DSM) under patched-conics.
 %   The decision vector is
 %       x = [t0, TOF, eta1, eta2, theta_b, Rperi]
 %   where:
@@ -202,3 +202,4 @@ c(end + 1) = v_inf_arr_n - 7;
 
 % -------------------- No equality constraints -----------------------------
 ceq = [];
+
