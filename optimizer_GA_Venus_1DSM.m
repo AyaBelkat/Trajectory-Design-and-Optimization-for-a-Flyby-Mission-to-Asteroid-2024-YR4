@@ -8,14 +8,11 @@
 %   - Ephemerides   : SPICE (cspice_*), kernels loaded via meta files
 
 clc; clear;
+startup;
 
 % --- SPICE setup (adjust paths for your environment) ---------------------
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\src\mice");
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\lib");
-
 cspice_kclear;
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_meta.tm');
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_equa_data.tm');
+load_kernels;
 
 
 % --- Initial epoch guesses ------------------------------
@@ -67,7 +64,7 @@ J       = @cost_GA_Venus_1DSM;          % Returns scalar cost
 [c0, ceq0] = circlcon_GA_dsm(x0);
 disp('Initial constraint values:'); disp(c0(:).');
 
-% --- Local optimizer settings (SQP) --------------------------------------
+% --- Local optimiser settings (SQP) --------------------------------------
 options = optimoptions('fmincon','Display','iter','Algorithm','sqp', ...
     'UseParallel',false,'ConstraintTolerance',1e-7,'ScaleProblem',true);
 
@@ -95,8 +92,8 @@ disp('Rperi [km]'); disp(Rperi_opt)
 % Simple global-local hybrid: random perturbation → local SQP → keep best
 
 numIterations = 60;    % Number of iterations
-bestSolution = X;      % Initial guess from local optimizer results
-bestCost     = Jmin;   % Best cost function from local optimizer results
+bestSolution = X;      % Initial guess from local optimiser results
+bestCost     = Jmin;   % Best cost function from local optimiser results
 
 % Utility: wrap any angle to (-pi, pi]
 wrapPi = @(theta_b) atan2(sin(theta_b), cos(theta_b));   % maps any angle to (−π, π]
@@ -150,5 +147,6 @@ disp('Best Rperi achieved:'); disp(bestSolution(6));
 
 disp('Best cost achieved:');
 disp(bestCost);
+
 
 check_more(bestSolution);
