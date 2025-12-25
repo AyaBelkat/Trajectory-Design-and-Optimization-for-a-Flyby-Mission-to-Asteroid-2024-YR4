@@ -71,11 +71,12 @@ v_inf2 = v2(:) - vE2(:);
 v_out  = GA_Earth_calculations(Rperi, theta_b, v_inf2, vE2, tGA);  % heliocentric
 
 % -------------------- Propagate GA → DSM (Sun two-body) --------------------
-time1 = tGA;
-time2 = tGA + tGA2DSM;
+dt_GA2DSM = tGA2DSM;                                  % seconds from tGA to DSM
+stateGA   = [rE2(:); v_out(:)];                       % 6x1 at GA epoch
+stateDSM  = cspice_prop2b(muS, stateGA, dt_GA2DSM);   % propagate by Δt
 
-% (Kept for reporting)
-[v_pre_DSM, r_pre_DSM] = TwoBodyPropagation(time1, time2, rE2(:), v_out(:));
+r_pre_DSM = stateDSM(1:3);
+v_pre_DSM = stateDSM(4:6);
 
 % -------------------- DSM → asteroid Lambert arc ---------------------------
 [v_post_DSM, v_sc_ast] = lambert_solver(r_pre_DSM(:), rAst(:), tDSM2Ast, muS);
@@ -226,4 +227,5 @@ function [R, V] = sample_conic_by_time(r0, v0, TOF, mu, N)
     end
 
 end
+
 
