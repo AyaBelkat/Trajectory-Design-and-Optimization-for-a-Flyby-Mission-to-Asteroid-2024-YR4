@@ -1,4 +1,4 @@
-% === Optimize a trajectory with one Gravity Assist (GA) around Earth and one DSM ===
+% === Optimise a trajectory with one Gravity Assist (GA) around Earth and one DSM ===
 
 % High-level:
 %   - Decision variables x = [t0, TOF, eta1, eta2, theta_b, Rperi]
@@ -8,14 +8,11 @@
 %   - Ephemerides   : SPICE (cspice_*), kernels loaded via meta files
 
 clc; clear;
+startup;
 
 % --- SPICE setup (adjust paths for your environment) ---------------------
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\src\mice");
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\lib");
-
 cspice_kclear;
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_meta.tm');
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_equa_data.tm');
+load_kernels;
 
 % --- Initial epoch guesses ------------------------------
 t0_guess = cspice_str2et(datestr(datetime(2030, 1, 17)));
@@ -95,8 +92,8 @@ disp('Rperi [km]');               disp(Rperi_opt)
 % Simple global-local hybrid: random perturbation → local SQP → keep best
 
 numIterations = 60;     % Number of iterations
-bestSolution = X;       % Initial guess from local optimizer results
-bestCost     = Jmin;    % Best cost function from local optimizer results
+bestSolution = X;       % Initial guess from local optimiser results
+bestCost     = Jmin;    % Best cost function from local optimiser results
 
 % Utility: wrap any angle to (-pi, pi]
 wrapPi = @(theta_b) atan2(sin(theta_b), cos(theta_b));   
@@ -149,4 +146,5 @@ disp('Best theta_b [rad] achieved'); disp(bestSolution(5));
 disp('Best Rperi [km] achieved');  disp(bestSolution(6));
 
 disp('Best cost achieved:');       disp(bestCost);
+
 check_more_E(bestSolution)
