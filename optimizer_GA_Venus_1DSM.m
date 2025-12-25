@@ -127,7 +127,7 @@ for iter = 1:numIterations
         bestSolution = X_trial;   % <- use optimized local result
         bestCost     = J_trial;
         fprintf('Iteration %d improved: cost = %.3f\n', iter, bestCost);
-        check_more(bestSolution);   % optional diagnostics for the new best
+        check_more_Venus(bestSolution);   % optional diagnostics for the new best
     end
 end
 
@@ -150,4 +150,5 @@ disp(bestCost);
 
 
 check_more_Venus(bestSolution);
+
 
