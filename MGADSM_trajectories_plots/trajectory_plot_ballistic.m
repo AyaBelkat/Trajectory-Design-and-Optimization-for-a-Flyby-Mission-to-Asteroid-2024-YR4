@@ -16,17 +16,15 @@
 %         ra=Re+22500 km). Switch strategy easily to min |v1| if desired.
 % =========================================================================
 clear; clc;
+startup;
 
 % ---------- USER INPUT: epochs (UTC calendar) ----------
 t0_cal = datetime(2032,  2, 17);   % example departure
 tf_cal = datetime(2032,  11, 17);   % example arrival
 
 % ---------- SPICE setup ----------
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\src\mice");
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\lib");
-
 cspice_kclear;
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_meta.tm');
+load_kernels;
 
 % ---------- Constants ----------
 muS = 1.32712440018e11;   % Sun GM [km^3/s^2]
@@ -149,3 +147,4 @@ function [R, V] = sample_conic_by_time(r0, v0, TOF, mu, N)
         V(:,k) = st(4:6);
     end
 end
+
