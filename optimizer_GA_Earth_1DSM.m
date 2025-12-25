@@ -128,7 +128,7 @@ for iter = 1:numIterations
         bestSolution = X_trial;   % <- use optimized local result
         bestCost     = J_trial;
         fprintf('Iteration %d improved: cost = %.3f\n', iter, bestCost);  
-        check_more_E(bestSolution);  % optional diagnostics for the new best
+        check_more_Earth(bestSolution);  % optional diagnostics for the new best
     end
 end
 
@@ -148,4 +148,5 @@ disp('Best Rperi [km] achieved');  disp(bestSolution(6));
 disp('Best cost achieved:');       disp(bestCost);
 
 check_more_Earth(bestSolution)
+
 
