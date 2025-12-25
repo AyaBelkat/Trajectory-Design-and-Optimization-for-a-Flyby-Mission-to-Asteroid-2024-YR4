@@ -133,7 +133,6 @@ title(sprintf('Ballistic Earth \\rightarrow 2024 YR4 (t_0=%s, t_f=%s)', ...
     datestr(t0_cal,'yyyy-mm-dd'), datestr(tf_cal,'yyyy-mm-dd')));
 h = legend(pT, 'Location','best');
 set(h,'FontSize',14);
-print(gcf,'-dpdf','Ballistic_Earth_to_2024YR4.pdf');
 
 % ========================== helpers =======================================
 function [R, V] = sample_conic_by_time(r0, v0, TOF, mu, N)
@@ -147,4 +146,5 @@ function [R, V] = sample_conic_by_time(r0, v0, TOF, mu, N)
         V(:,k) = st(4:6);
     end
 end
+
 
