@@ -71,7 +71,7 @@ options = optimoptions('fmincon','Display','iter','Algorithm','sqp', ...
 % --- Local solve (starting from x0) --------------------------------------
 [X, Jmin] = fmincon(J, x0, A, b, Aeq, beq, lb, ub, nonlcon, options);
 
-check_more_E(X);    % optional routine for testing
+check_more_Earth(X);    % optional routine for testing
 
 % Report local results
 optimized_departure_date = cspice_et2utc(X(1), 'C', 3);
@@ -147,4 +147,5 @@ disp('Best Rperi [km] achieved');  disp(bestSolution(6));
 
 disp('Best cost achieved:');       disp(bestCost);
 
-check_more_E(bestSolution)
+check_more_Earth(bestSolution)
+
