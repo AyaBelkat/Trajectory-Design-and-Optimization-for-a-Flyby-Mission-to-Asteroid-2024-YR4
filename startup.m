@@ -34,12 +34,11 @@ else
     fprintf('-> SPICE Toolkit: OK (Detected in Path)\n');
 end
 
-% 3. Verify Core Solver Existence
-% A quick check to ensure the /core_solvers directory is populated.
-if exist('lambert_solver.m', 'file')
-    fprintf('-> Core Lambert Engine: Detected\n');
+% 3. Verify Core Solver and MGADSM Engine Existence
+if exist('lambert_solver.m', 'file') && exist('cost_GA_1DSM.m', 'file')
+    fprintf('-> Core Solvers & MGADSM Engines: Detected\n');
 else
-    warning('lambert_solver.m not found. Check your /core_solvers folder.');
+    warning('One or more mission engines are missing. Check your folder structure.');
 end
 
 fprintf('------------------------------------------------------------\n');
