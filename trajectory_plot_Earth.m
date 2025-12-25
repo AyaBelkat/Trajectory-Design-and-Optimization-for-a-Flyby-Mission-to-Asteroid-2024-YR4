@@ -226,3 +226,4 @@ function [R, V] = sample_conic_by_time(r0, v0, TOF, mu, N)
     end
 
 end
+
