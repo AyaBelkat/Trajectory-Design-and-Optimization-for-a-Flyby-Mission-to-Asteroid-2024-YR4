@@ -1,12 +1,11 @@
 clear;clc;
-% --- SPICE setup (adjust paths for your environment) ---------------------
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\src\mice");
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\lib");
+startup;
 
+% --- SPICE setup (adjust paths for your environment) ---------------------
 cspice_kclear;
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_meta.tm');
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_equa_data.tm');
-% ---------- plot the optimized trajectory MGADSM Venus ----------
+load_kernels;
+
+% ---------- plot the optimised trajectory MGADSM Venus ----------
 t0 = datetime(2031, 5, 27);
 tf = datetime(2032, 10, 13);
 t0 = cspice_str2et(datestr(t0));
@@ -227,3 +226,4 @@ function [R, V] = sample_conic_by_time(r0, v0, TOF, mu, N)
         V(:,k) = st(4:6);
     end
 end
+
