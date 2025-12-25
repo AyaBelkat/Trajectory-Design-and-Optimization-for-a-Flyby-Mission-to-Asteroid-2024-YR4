@@ -1,12 +1,10 @@
 clear;clc;
+startup;
 
 % --- SPICE setup (adjust paths for your environment) ---------------------
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\src\mice");
-addpath("C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mice\mice\lib");
-
 cspice_kclear;
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_meta.tm');
-cspice_furnsh('C:\Users\wbook\Desktop\Dissertation files\Dissertation_codes\mission_equa_data.tm');
+load_kernels;
+
 % ---------- plot the optimized trajectory MGADSM Earth ----------
 t0 = datetime(2028, 10, 14);
 tf = datetime(2032, 11, 7);
@@ -70,7 +68,7 @@ delta_v_inj = sqrt(v_inf1_n^2 + 2*muE/rp) - sqrt(muE*(2/rp - 1/a));
 
 % -------------------- Unpowered GA at Earth --------------------------------
 v_inf2 = v2(:) - vE2(:);
-v_out  = GA_calculations(Rperi, theta_b, v_inf2, vE2, tGA);  % heliocentric
+v_out  = GA_Earth_calculations(Rperi, theta_b, v_inf2, vE2, tGA);  % heliocentric
 
 % -------------------- Propagate GA → DSM (Sun two-body) --------------------
 time1 = tGA;
@@ -185,19 +183,19 @@ rngX = max([x1,x2,x3]) - min([x1,x2,x3]);
 rngY = max([y1,y2,y3]) - min([y1,y2,y3]);
 arrow_scale = min(rngX, rngY) * 0.05; % 5% of plot range
 
-% Departure velocity arrow (normalized and scaled)quiver(xa, ya, len*v(1), len*v(2), 0, 'k','LineWidth',1.4,'MaxHeadSize',1.0);
+% Departure velocity arrow (normalised and scaled)
 v_inf1_norm = v_inf1 / norm(v_inf1) * arrow_scale;
 quiver(xe0, ye0, v_inf1_norm(1), v_inf1_norm(2), 0, 'g','LineWidth',2,'MaxHeadSize',0.8);
 text(xe0 + v_inf1_norm(1)*1.2, ye0 + v_inf1_norm(2)*1.2, '\DeltaV_1 (departure)', ...
      'FontWeight','bold', 'HorizontalAlignment','left');
 
-% DSM velocity arrow (normalized and scaled)
+% DSM velocity arrow (normalised and scaled)
 delta_v_DSM_norm = delta_v_DSM / norm(delta_v_DSM) * arrow_scale;
 quiver(xDSM, yDSM, delta_v_DSM_norm(1), delta_v_DSM_norm(2), 0, 'm','LineWidth',2,'MaxHeadSize',0.8);
 text(xDSM + delta_v_DSM_norm(1)*1.2, yDSM + delta_v_DSM_norm(2)*1.2, '\DeltaV_{DSM}', ...
      'FontWeight','bold', 'HorizontalAlignment','left','VerticalAlignment','bottom');
 
-% Arrival velocity arrow (normalized and scaled)
+% Arrival velocity arrow (normalised and scaled)
 v_inf_arr_norm = v_inf_arr / norm(v_inf_arr) * arrow_scale;
 quiver(xAST, yAST, v_inf_arr_norm(1), v_inf_arr_norm(2), 0, 'r','LineWidth',2,'MaxHeadSize',0.8);
 text(xAST + v_inf_arr_norm(1)*2, yAST + v_inf_arr_norm(2)*2, 'v_{\infty,arr}', ...
@@ -226,4 +224,5 @@ function [R, V] = sample_conic_by_time(r0, v0, TOF, mu, N)
         R(:,k) = st(1:3);
         V(:,k) = st(4:6);
     end
+
 end
