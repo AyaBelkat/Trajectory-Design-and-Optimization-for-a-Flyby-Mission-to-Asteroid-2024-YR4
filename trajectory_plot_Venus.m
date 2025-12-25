@@ -205,7 +205,6 @@ xlabel('X [km]'); ylabel('Y [km]');
 title('MGADSM – Venus Flyby Trajectory');
 h = legend([p1 p2 p3],'Location','best');
 set(h,'FontSize',14);
-print(gcf,'-dpdf','MGADSM_trajectory_fixed.pdf');
 
 disp('DeltaV_inj');   disp(delta_v_inj)
 disp('DeltaV_DSM');   disp(delta_v_DSM_n)
@@ -226,4 +225,5 @@ function [R, V] = sample_conic_by_time(r0, v0, TOF, mu, N)
         V(:,k) = st(4:6);
     end
 end
+
 
