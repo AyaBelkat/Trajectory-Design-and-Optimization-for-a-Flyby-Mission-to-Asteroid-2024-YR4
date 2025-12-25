@@ -14,6 +14,13 @@ log.txt            # Local MATLAB logs
 *.tf
 *.mat              # Large local data variables
 
+# Ignore generated trajectory plots
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.fig
+
 # --- OS Specific ---
 .DS_Store
 Thumbs.db
