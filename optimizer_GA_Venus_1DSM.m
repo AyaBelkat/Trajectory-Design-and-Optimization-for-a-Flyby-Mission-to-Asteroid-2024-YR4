@@ -71,7 +71,7 @@ options = optimoptions('fmincon','Display','iter','Algorithm','sqp', ...
 % --- Local solve (starting from x0) --------------------------------------
 [X, Jmin] = fmincon(J, x0, A, b, Aeq, beq, lb, ub, nonlcon, options); 
 
-check_more(X);    % optional routine for testing
+check_more_Venus(X);    % optional routine for testing
 
 % Report local results
 optimized_departure_date = cspice_et2utc(X(1), 'C', 3);
@@ -149,4 +149,5 @@ disp('Best cost achieved:');
 disp(bestCost);
 
 
-check_more(bestSolution);
+check_more_Venus(bestSolution);
+
