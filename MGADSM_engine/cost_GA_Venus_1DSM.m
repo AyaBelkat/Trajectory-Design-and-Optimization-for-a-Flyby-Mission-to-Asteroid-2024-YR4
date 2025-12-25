@@ -12,7 +12,7 @@ function [J] = cost_GA_Venus_1DSM(x)
 %     theta_b : GA B-plane turning/aiming parameter (rad) used by GA_calculations
 %     Rperi   : Venus flyby periapsis radius (km)
 %
-% Modeling assumptions:
+% Modelling assumptions:
 %   • Patched-conics, heliocentric two-body propagation between events.
 %   • Planet states from SPICE (Sun/J2000, NO aberration).
 %   • GA unpowered 
@@ -129,3 +129,4 @@ v_inf_arr_n = norm(v_inf_arr);
 J = delta_v_inj + delta_v_DSM_n;
 
 end
+
