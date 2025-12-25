@@ -105,7 +105,7 @@ delta_v_inj = sqrt(v_inf1_n^2 + 2*muE/rp) - sqrt(muE*(2/rp - 1/a));
 % -------------------- Unpowered GA at Earth -------------------------------
 % Inbound hyperbolic excess at GA epoch:
 v_inf2 = v2(:) - vE2(:);                      % inbound v∞ (km/s)
-v_out  = GA_calculations(Rperi, theta_b, v_inf2, vE2, tGA);   % heliocentric velocity after GA
+v_out  = GA_Earth_calculations(Rperi, theta_b, v_inf2, vE2, tGA);   % heliocentric velocity after GA
 
 % -------------------- Propagate GA → DSM (Sun two-body) -------------------
 % Propagation from GA epoch to the DSM epoch in heliocentric 2BP.
@@ -192,4 +192,5 @@ c(end + 1) = v_inf_arr_n - 7;
 
 % -------------------- No equality constraints -----------------------------
 ceq = [];
+
 
