@@ -79,7 +79,7 @@ delta_v_inj = sqrt(v_inf1_n^2 + 2*muE/rp) - sqrt(muE*(2/rp - 1/a));
 % -------------------- Unpowered GA at Earth -------------------------------
 % Inbound v∞ at GA epoch (heliocentric → planet-relative):
 v_inf2 = v2(:) - vE2(:);                       % inbound v∞ at GA 
-v_out  = GA_calculations(Rperi, theta_b, v_inf2, vE2, tGA);     % GA calculations
+v_out  = GA_Earth_calculations(Rperi, theta_b, v_inf2, vE2, tGA);     % GA calculations
  
 % -------------------- Propagate GA → DSM (Sun two-body) -----------------------
 stDSM = cspice_prop2b(muS, [rE2; v_out(:)], tGA2DSM);
@@ -125,4 +125,5 @@ v_inf_arr_n = norm(v_inf_arr);
 J = delta_v_inj + delta_v_DSM_n;
 
 end
+
 
