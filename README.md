@@ -44,6 +44,7 @@ The results highlight a clear trade-off between **Time of Flight (TOF)** and **Î
 * `/mgadsm_engine`: Architecture-specific cost functions, nonlinear constraints, and GA calculations.
 * `/ballistic-optimisation`:  ballistic trajectory optimisation cost function and nonlinear constraints
 * `/plotting_utils`: Specialised tools for generating standardised trajectory visualisations for Earth-asteroid 2024 YR4 pork-chop results.
+* `/trajectory_plots`: Contains plots of the optimisation results from ballistic and MGADSM optimisers.
 
 ## Getting Started
 
