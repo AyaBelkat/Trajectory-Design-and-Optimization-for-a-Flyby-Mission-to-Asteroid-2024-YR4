@@ -21,18 +21,20 @@ This repository provides a high-fidelity trajectory design and optimisation fram
 | **Arrival Angle (deg)** | 83.87 | 59.92 | 60.00 |
 | **Total TOF (days)** | 274 | 1485 | 505 |
 
-Repository Structure:
-* `startup.m`: Initialises the MATLAB environment and maps all project subfolders. MAKE SURE TO RUN THIS SCRIPT FIRST.
+## Repository Structure
+
+* `startup.m`: Initialises the MATLAB environment and maps all project subfolders. *This script must be executed before running any other code.*
 * `/data`: Contains all the necessary small data files. BIG FILES TO DOWNLOAD: de430.bsp from: https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/
 * `/core_solvers`: Universal physics engines, including the Lambert solver 
 * `/mgadsm_engine`: Architecture-specific cost functions, nonlinear constraints, and GA calculations.
 * `/ballistic-optimisation`:  ballistic trajectory optimisation cost function and nonlinear constraints
 * `/plotting_utils`: Specialised tools for generating standardised trajectory visualisations for Earth-asteroid 2024 YR4 pork-chop results.
 
-Getting Started:
+## Getting Started
+
 1. Dependencies: Download the Mice Toolkit and required planetary/asteroid kernels from the NASA NAIF website: https://naif.jpl.nasa.gov/naif/toolkit_MATLAB.html
 2. Clone the Repository:
 > git clone https://github.com/AyaBelkat/Trajectory-Design-and-Optimization-for-a-Flyby-Mission-to-Asteroid-2024-YR4.git
 3. Setup: Place the Mice files and kernels in your project root or update the paths in load_kernels.m
-4. Initialise: Run startup.m to configure the environment and verify that the NAIF data is correctly loaded. MAKE SURE TO RUN startup.m BEFORE ANY OTHER SCRIPT.
+4. Initialise: Run startup.m to configure the environment and verify that the NAIF data is correctly loaded.
 
