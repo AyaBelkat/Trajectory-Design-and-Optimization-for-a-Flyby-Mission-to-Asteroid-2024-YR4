@@ -29,8 +29,12 @@ This repository is intended for astrodynamics students, researchers, and mission
 | **Arrival Angle (deg)** | 83.87 | 59.92 | 60.00 |
 | **Total TOF (days)** | 274 | 1485 | 505 |
 
-> **Note:** Results correspond to the current optimisation configuration and SPICE kernel versions; values may vary with different bounds or solver settings.
+> **Notes:**  
+> - Results correspond to the current optimisation configuration and SPICE kernel versions; values may vary with different bounds or solver settings.  
+> - The arrival angle quantifies whether the spacecraft approaches the sun-illuminated side of the asteroid. Values below **60°** were adopted as a criterion for favourable illumination conditions during the flyby.
 
+### Mission Analysis
+The results highlight a clear trade-off between **Time of Flight (TOF)** and **ΔV efficiency**. While the ballistic transfer provides the shortest TOF, the **Venus Gravity Assist** architecture offers more favourable arrival conditions on the sun-illuminated side of the asteroid. In addition, gravity assist trajectories yield lower arrival \( v_{\infty} \), which is critical for maximising observation time and scientific return during the flyby phase.
 
 ## Repository Structure
 
