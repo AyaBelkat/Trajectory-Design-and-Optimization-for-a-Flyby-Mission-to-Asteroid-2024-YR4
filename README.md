@@ -21,17 +21,6 @@ This repository provides a high-fidelity trajectory design and optimisation fram
 | **Arrival Angle (deg)** | 83.87 | 59.92 | 60.00 |
 | **Total TOF (days)** | 274 | 1485 | 505 |
 
-Parameter           |  Ballistic Transfer  | Earth-Resonant Assist+DSM  |  Venus Flyby Assist+DSM
----------------------------------------------------------------------------------------------------
-Departure Date      |  17 Feb 2032         |  14 Oct 2028               |  27 May 2031
-Arrival Date        |  17 Nov 2032         |  07 Nov 2032               |  13 Oct 2032
-Total ΔV (km/s)     |  1.7491              |  3.807                     |  2.796
-Arrival v∞​ (km/s)   |  7.446               |  6.998                     |  6.984
-Arrival angle (deg) |  83.87               |  59.92                     |  60.00
-Total TOF (days)    |  274                 |  1485                      |  505
-
-(check code version for better view)
-
 Repository Structure:
 * `startup.m`: Initialises the MATLAB environment and maps all project subfolders. MAKE SURE TO RUN THIS SCRIPT FIRST.
 * `/data`: Contains all the necessary small data files. BIG FILES TO DOWNLOAD: de430.bsp from: https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/
