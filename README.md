@@ -10,7 +10,7 @@ Key Features:
 -> High-Fidelity Ephemeris: Fully integrated with the NASA SPICE (Mice) toolkit for precise J2000 planetary and asteroid state vectors.
 -> B-Plane Targeting: Advanced flyby modelling using Rodrigues’ rotation formula for 3D trajectory steering.
 
-Results Summary:
+Results Summary (check code version):
 
 Parameter           |  Ballistic Transfer  | Earth-Resonant Assist+DSM  |  Venus Flyby Assist+DSM
 ---------------------------------------------------------------------------------------------------
