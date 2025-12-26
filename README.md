@@ -1,8 +1,16 @@
 # Trajectory-Design-and-Optimization-for-a-Flyby-Mission-to-Asteroid-2024-YR4
+
+![MATLAB](https://img.shields.io/badge/MATLAB-R2021b+-blue)
+![SPICE](https://img.shields.io/badge/NAIF-SPICE-orange)
+![Status](https://img.shields.io/badge/status-active-success)
+
 MATLAB tools for interplanetary trajectory optimisation and flyby mission design for asteroid 2024 YR4. Includes MGADSM trajectory design, local/global optimisation, and orbital visualisation.
 
 ## Project Abstract
 This repository provides a high-fidelity trajectory design and optimisation framework for a flyby mission to Asteroid 2024 YR4. The mission is designed to intercept the asteroid before its peak Earth-impact risk window in December 2032. Two primary mission architectures are explored: an Earth-Resonant Gravity Assist and a Venus Gravity Assist, both utilising a Deep Space Manoeuvre (DSM) to minimise total propellant requirements.
+
+## Intended Audience
+This repository is intended for astrodynamics students, researchers, and mission analysts interested in interplanetary trajectory design and optimisation using gravity assists and deep space manoeuvres.
 
 ## Key Features:
 * **MGADSM Engine:** A modular engine for Multi-Gravity Assist trajectories with segmented Deep Space Manoeuvres.
@@ -20,6 +28,9 @@ This repository provides a high-fidelity trajectory design and optimisation fram
 | **Arrival $v_{\infty}$ (km/s)** | 7.446 | 6.998 | 6.984 |
 | **Arrival Angle (deg)** | 83.87 | 59.92 | 60.00 |
 | **Total TOF (days)** | 274 | 1485 | 505 |
+
+> **Note:** Results correspond to the current optimisation configuration and SPICE kernel versions; values may vary with different bounds or solver settings.
+
 
 ## Repository Structure
 
