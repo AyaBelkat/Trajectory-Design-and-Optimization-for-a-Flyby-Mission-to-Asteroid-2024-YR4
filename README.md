@@ -12,6 +12,15 @@ This repository provides a high-fidelity trajectory design and optimisation fram
 
 ## Results Summary:
 
+| Parameter | Ballistic Transfer | Earth-Resonant Assist + DSM | Venus Flyby Assist + DSM |
+| :--- | :--- | :--- | :--- |
+| **Departure Date** | 17 Feb 2032 | 14 Oct 2028 | 27 May 2031 |
+| **Arrival Date** | 17 Nov 2032 | 07 Nov 2032 | 13 Oct 2032 |
+| **Total $\Delta V$ (km/s)** | 1.7491 | 3.807 | 2.796 |
+| **Arrival $v_{\infty}$ (km/s)** | 7.446 | 6.998 | 6.984 |
+| **Arrival Angle (deg)** | 83.87 | 59.92 | 60.00 |
+| **Total TOF (days)** | 274 | 1485 | 505 |
+
 Parameter           |  Ballistic Transfer  | Earth-Resonant Assist+DSM  |  Venus Flyby Assist+DSM
 ---------------------------------------------------------------------------------------------------
 Departure Date      |  17 Feb 2032         |  14 Oct 2028               |  27 May 2031
