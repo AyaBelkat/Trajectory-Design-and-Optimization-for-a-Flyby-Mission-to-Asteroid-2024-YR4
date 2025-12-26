@@ -24,12 +24,12 @@ Total TOF (days)    |  274                 |  1485                      |  505
 (check code version for better view)
 
 Repository Structure:
-* 'startup.m': Initialises the MATLAB environment and maps all project subfolders. MAKE SURE TO RUN THIS SCRIPT FIRST.
-* '/data': Contains all the necessary small data files. BIG FILES TO DOWNLOAD: de430.bsp from: https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/
-* '/core_solvers': Universal physics engines, including the Lambert solver 
-* '/mgadsm_engine': Architecture-specific cost functions, nonlinear constraints, and GA calculations.
-* '/ballistic-optimisation':  ballistic trajectory optimisation cost function and nonlinear constraints
-* '/plotting_utils': Specialised tools for generating standardised trajectory visualisations for Earth-asteroid 2024 YR4 pork-chop results.
+* `startup.m`: Initialises the MATLAB environment and maps all project subfolders. MAKE SURE TO RUN THIS SCRIPT FIRST.
+* `/data`: Contains all the necessary small data files. BIG FILES TO DOWNLOAD: de430.bsp from: https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/
+* `/core_solvers`: Universal physics engines, including the Lambert solver 
+* `/mgadsm_engine`: Architecture-specific cost functions, nonlinear constraints, and GA calculations.
+* `/ballistic-optimisation`:  ballistic trajectory optimisation cost function and nonlinear constraints
+* `/plotting_utils`: Specialised tools for generating standardised trajectory visualisations for Earth-asteroid 2024 YR4 pork-chop results.
 
 Getting Started:
 1. Dependencies: Download the Mice Toolkit and required planetary/asteroid kernels from the NASA NAIF website: https://naif.jpl.nasa.gov/naif/toolkit_MATLAB.html
