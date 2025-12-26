@@ -22,4 +22,11 @@ Arrival angle (deg) |  83.87               |  59.92                     |  60.00
 Total TOF (days)    |  274                 |  1485                      |  505
 
 Repository Structure:
+startup.m: Initialises the MATLAB environment and maps all project subfolders.
+/core_solvers: Universal physics engines including the Lambert solver 
+/mgadsm_engine: Architecture-specific cost functions, nonlinear constraints, and GA calculations.
+/ballistic-optimisation:  ballistic trajectory optimisation cost function and nonlinear constraints
+/plotting_utils: Specialised tools for generating standardised trajectory visualisations for Earth-asteroid 2024 YR4 pork-chop results.
+
+Getting Started:
 
