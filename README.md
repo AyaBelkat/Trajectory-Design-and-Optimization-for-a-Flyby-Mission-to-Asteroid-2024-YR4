@@ -54,3 +54,4 @@ The results highlight a clear trade-off between **Time of Flight (TOF)** and **Î
 3. Setup: Place the Mice files and kernels in your project root or update the paths in load_kernels.m
 4. Initialise: Run startup.m to configure the environment and verify that the NAIF data is correctly loaded.
 
+> **NOTE:** Results and detailed documentation are currently being prepared and will be added in a forthcoming update.
