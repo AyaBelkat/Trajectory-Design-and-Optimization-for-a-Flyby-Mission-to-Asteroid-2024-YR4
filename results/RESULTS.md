@@ -6,7 +6,7 @@ This section presents the results of the mission analysis for a flyby of Asteroi
 * Optimised Mission Architectures: Direct transfer solutions and MGADSM trajectories, utilising Earth and Venus gravity assists.
 * Numerical Validation: Command window outputs providing a detailed look at optimisation results.
 
-## Lambert Solver validation: 
+### Lambert Solver Validation: 
 The Lambert solver MATLAB implementation was validated using Earth-Mars porkchop plots for the period between the years 2005 and 2007. This ensured that any later use of the solver is validated.
 
 | My MATLAB Implementation | NASA/Reference Benchmark |
