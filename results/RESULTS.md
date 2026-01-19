@@ -15,3 +15,5 @@ The Lambert solver MATLAB implementation was validated using Earth-Mars porkchop
 | *Validation of Lambert Solver* | *Reference Standard* |
 
 *The reference plot was retrieved from: https://en.wikipedia.org/wiki/Porkchop_plot on 17/01/2026*
+
+### Earth-2024 YR4 Porch-chop Plots:
