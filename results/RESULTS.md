@@ -28,6 +28,8 @@ The pork-chop plots for different periods and numbers of revolutions are present
 ### Interactive Pork-chop Plots Demonstrations:
 This section presents GIF images demonstrating the interactive Earth-2024 YR4 pork-chop plots.
 
-| Period | Number of revolutions | GIF images |
+| Period | # of rev plotted | GIF images |
 | :---: | :---: | :---: |
-|
+| 2031-2032 | 0 revolution | ![first gif](visualisation_gif_0rev.gif) |
+| 2031-2032 | 1 revolution | ![first gif](visualisation_gif_1rev.gif) |
+
