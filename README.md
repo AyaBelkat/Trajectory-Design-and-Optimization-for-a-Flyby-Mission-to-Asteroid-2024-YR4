@@ -57,7 +57,7 @@ The results highlight a clear trade-off between **Time of Flight (TOF)** and **�
 ## 📊 Results
    Comprehensive mission analysis results, including trajectory visualisations, 
    optimisation outcomes, and interactive demonstrations are available in the 
-   [results folder](./results/).
+   [results folder](./results/RESULTS.md/).
    
    Key findings:
    - Venus gravity assist: 2.796 km/s total ΔV
