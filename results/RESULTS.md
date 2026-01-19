@@ -23,4 +23,4 @@ The pork-chop plots for different periods and numbers of revolutions are present
 | :---: | :---: | :---: |
 | 2027-2032 | 0 revolution | ![first plot](asteroid_pork_chop_0rev.png) |
 | 2027-2032 | 1 revolution | ![second plot](asteroid_pork_chop_1rev.png) |
-| 2031-2032 | 1 revolution | ![third plot](asteroid_porkchop_plot_2031_2032.png) |
+| 2031-2032 | 1 revolution | ![third plot](asteroid_porkchop_plot_2031_2032.jpg) |
