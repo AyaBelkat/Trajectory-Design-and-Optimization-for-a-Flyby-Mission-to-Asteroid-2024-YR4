@@ -54,4 +54,14 @@ The results highlight a clear trade-off between **Time of Flight (TOF)** and **�
 3. Setup: Place the Mice files and kernels in your project root or update the paths in load_kernels.m
 4. Initialise: Run startup.m to configure the environment and verify that the NAIF data is correctly loaded.
 
+## 📊 Results
+   Comprehensive mission analysis results, including trajectory visualisations, 
+   optimisation outcomes, and interactive demonstrations are available in the 
+   [results folder](./results/).
+   
+   Key findings:
+   - Venus gravity assist: 2.796 km/s total ΔV
+   - Earth gravity assist: 3.807 km/s total ΔV  
+   - Direct transfer: 1.749 km/s (limited launch window)
+
 > **NOTE:** Detailed documentation is currently being prepared and will be added in a forthcoming update.
