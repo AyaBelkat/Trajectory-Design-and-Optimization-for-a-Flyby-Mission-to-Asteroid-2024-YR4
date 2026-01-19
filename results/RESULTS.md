@@ -17,9 +17,9 @@ The Lambert solver MATLAB implementation was validated using Earth-Mars porkchop
 *The reference plot was retrieved from: https://en.wikipedia.org/wiki/Porkchop_plot on 17/01/2026*
 
 ### Earth-2024 YR4 Porch-chop Plots:
-The pork-chop plots for different periods and numbers of revolutions are below in the table.
+The pork-chop plots for different periods and numbers of revolutions are presented in the table below.
 
-| My MATLAB Implementation | NASA/Reference Benchmark |
-| :---: | :---: |
-| ![My Result](mars_lambert_solver_verification_porkchop_plot.png) | ![Reference](Porkchop_plot.gif) |
-| *Validation of Lambert Solver* | *Reference Standard* |
+| Period | Number of revolutions | Pork-chop Plots |
+| :---: | :---: | :---: |
+| 2027-2032 | 0 revolutions | ![first plot](asteroid_pork_chop_0rev.png) |
+| 2027-2032 |
