@@ -45,7 +45,8 @@ optimized arrival date
 2032 NOV 17 00:00:00.000
 Best cost
     1.7491
-**Ballistic Trajectory Plot**
+    
+**Ballistic Trajectory Plot:**
 
 ![direct traj plot](plot_ballistic_trajectory.png)
 
@@ -86,7 +87,7 @@ Checks (X): |vinf+|-|vinf-|=4.441e-16 km/s, dv0=1.741, dvDSM=2.066, dvArr=6.998,
 v∞dep=3.875, v∞GA_in=3.927, v∞arr=6.998 km/s
 , arr_phase=59.924
 
-**MGADSM-Earth Trajectory Plot**
+**MGADSM-Earth Trajectory Plot:**
 
 ![EarthGA traj plot](MGADSM_earth_traj.png)
 
@@ -123,7 +124,7 @@ Checks (X): |vinf+|-|vinf-|=8.882e-16 km/s, dv0=1.740, dvDSM=1.055, dvArr=6.984,
 v∞dep=3.873, v∞GA_in=6.581, v∞arr=6.984 km/s
 , arr_phase=60.000
 
-**MGADSM-Venus Trajectory Plot**
+**MGADSM-Venus Trajectory Plot:**
 
 ![VenusGA traj plot](MGADSM_venus_traj.png)
 
