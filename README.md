@@ -18,7 +18,13 @@ This repository is intended for astrodynamics students, researchers, and mission
 * **High-Fidelity Ephemeris:** Fully integrated with the NASA SPICE (Mice) toolkit for precise J2000 planetary and asteroid state vectors.
 * **B-Plane Targeting:** Advanced flyby modelling using Rodrigues’ rotation formula for 3D trajectory steering.
 
-## Results Summary:
+## Results:
+
+Comprehensive mission analysis results, including trajectory visualisations, 
+optimisation outcomes, and interactive demonstrations are available in the 
+[results folder](./results/RESULTS.md/).
+
+### Results Summary: 
 
 | Parameter | Ballistic Transfer | Earth-Resonant Assist + DSM | Venus Flyby Assist + DSM |
 | :--- | :--- | :--- | :--- |
@@ -53,15 +59,5 @@ The results highlight a clear trade-off between **Time of Flight (TOF)** and **�
 > git clone https://github.com/AyaBelkat/Trajectory-Design-and-Optimization-for-a-Flyby-Mission-to-Asteroid-2024-YR4.git
 3. Setup: Place the Mice files and kernels in your project root or update the paths in load_kernels.m
 4. Initialise: Run startup.m to configure the environment and verify that the NAIF data is correctly loaded.
-
-## 📊 Results
-   Comprehensive mission analysis results, including trajectory visualisations, 
-   optimisation outcomes, and interactive demonstrations are available in the 
-   [results folder](./results/RESULTS.md/).
-   
-   Key findings:
-   - Venus gravity assist: 2.796 km/s total ΔV
-   - Earth gravity assist: 3.807 km/s total ΔV  
-   - Direct transfer: 1.749 km/s (limited launch window)
 
 > **NOTE:** Detailed documentation is currently being prepared and will be added in a forthcoming update.
