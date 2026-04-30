@@ -17,9 +17,9 @@ muE = 398600;    % Earth's gravitational parameter [km^3/s^2]
 % Magnitude of incoming excess velocity
 v_inf = norm(v_inf_in);
 
-% Transform planet pole from body-fixed to J2000 at epoch DCM
+% Transform planet pole from elliptical to equatorial J2000 at epoch DCM
 
-M_eq = cspice_pxform(['IAU_' 'EARTH'], 'J2000', et);   % body-fixed, equatorial -> J2000
+M_eq = cspice_pxform(['IAU_' 'EARTH'], 'J2000', et);   % body-fixed, equatorial at J2000
 
 % Define B-plane reference axes
 S = v_inf_in/norm(v_inf_in);    % Incoming asymptote direction
